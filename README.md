@@ -32,9 +32,9 @@
 - お気に入りの場所や情報を自分用にブックマークしておきたい時
 
 ## 設計書
-- [画面遷移図（会員側）](https://app.diagrams.net/#G1EAt9fWRBZT7CLtM2toosiCfNNyTEIZ-9)
-- [画面遷移図（管理者側）](https://app.diagrams.net/#G1CbcO4emi1IERdaPyNAmqzLbf0f_REY12)
-- [ER図](https://app.diagrams.net/#G16jfMXf4PjOiPGWv4LuhS5pkJgQxZvzdS)
+- [画面遷移図（会員側）](https://drive.google.com/file/d/1EAt9fWRBZT7CLtM2toosiCfNNyTEIZ-9/view?usp=sharing)
+- [画面遷移図（管理者側）](https://drive.google.com/file/d/1CbcO4emi1IERdaPyNAmqzLbf0f_REY12/view?usp=sharing)
+- [ER図](https://drive.google.com/file/d/16jfMXf4PjOiPGWv4LuhS5pkJgQxZvzdS/view?usp=sharing)
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/1vcRW8YrQJrgN2RKM61E5U89XWIJmSuSg5_Nx4Mbbpzs/edit?usp=sharing)
 - [アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/12FY20dUUbAiASghFoDAC7fNO_icI4TA1HyfCn-ionmU/edit?usp=sharing)
 
