@@ -1,2 +1,17 @@
-<h1>Public::EndUsers#edit</h1>
-<p>Find me in app/views/public/end_users/edit.html.erb</p>
+<h2>プロフィール編集</h2>
+<%= form_with model: @end_user, url: end_user_path, method: :patch do |f| %>
+  <%= f.label "名前" %>
+  <%= f.text_field :name, autofocus: true%>
+
+  <%= f.label "自己紹介" %>
+  <%= f.text_area :introduction %>
+
+  <%= f.label "プロフィール写真" %>
+  <%= f.file_field :profile_image, accept: "image/*" %>
+
+  <%= f.label "メールアドレス" %>
+  <%= f.text_field :email %>
+
+  <%= f.submit "変更を保存" %>
+  <%= link_to "退会する", end_users_unsubscribe_path %>
+<% end %>

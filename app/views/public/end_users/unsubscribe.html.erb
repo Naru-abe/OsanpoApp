@@ -1,2 +1,11 @@
-<h1>Public::EndUsers#unsubscribe</h1>
-<p>Find me in app/views/public/end_users/unsubscribe.html.erb</p>
+<h1>本当に退会しますか？</h1>
+<p>
+  退会すると、会員登録情報や<br>
+  これまでのご自身の投稿が閲覧できなくなります。<br>
+  退会する場合は、「退会する」をクリックしてください
+</p>
+<%= link_to "退会しない", end_user_path(@end_user) %>
+<%= form_with model: @end_user, url: end_users_withdraw_path, method: :patch do |f| %>
+  <%= f.hidden_field :is_deleted, :value => "true" %>
+  <%= f.submit "退会する" %>
+<% end %>
