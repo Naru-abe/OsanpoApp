@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
+ruby '3.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.6', '>= 6.1.6.1'
@@ -55,4 +55,15 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# ユーザー認証機能用
 gem 'devise'
+# 画像投稿用
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+# ページネーション用
+gem 'kaminari', '~> 1.2.1'
+# 緯度経度の情報からマップ上にピンを刺す用
+gem "gmaps4rails"
+# 住所の情報を緯度経度の数値に変換する用
+gem "geocoder"
+
