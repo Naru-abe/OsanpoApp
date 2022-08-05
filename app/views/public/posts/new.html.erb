@@ -1,2 +1,9 @@
-<h1>Public::Posts#new</h1>
-<p>Find me in app/views/public/posts/new.html.erb</p>
+<%= form_with model: @post, url: posts_path, method: :post do |f| %>
+<h4>新規投稿を作成</h4>
+<%= f.file_field :post_image, accept: "image/*" %>
+<%= f.text_area :content, class: "textarea" %>
+<%= f.select :tag_id, options_from_collection_for_select(Tag.all, :id, :name) %>
+<%= f.select :station_name, [["宇部新川駅", 1],["草江駅", 2],["新山口駅", 3],["宇部駅", 4],["居能駅", 5],["雀田駅", 5]], { include_blank: true, selected: 1 }, { id: "station_name_id", class: "station_name_class" } %>
+<p>位置情報を追加する</p>
+<%= f.submit "シェア" %>
+<% end %>
