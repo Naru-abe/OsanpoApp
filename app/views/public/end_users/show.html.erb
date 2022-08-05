@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row my-5">
-    <div class="col-10 my-3 mx-auto">
+    <div class="col-12 my-3 mx-auto">
       <div class="row justify-content-center border-bottom">
         <div class="col-3 mb-3 text-center">
           <%= image_tag @end_user.get_profile_image, size: "100x100" %>
@@ -9,7 +9,9 @@
         <div class="col-7 mb-3">
           <div class="row">
             <h3 class="col-7"><%= @end_user.name %></h3>
-            <%= link_to "プロフィール編集", edit_end_user_path(@end_user), class: "col-5 btn btn-outline-secondary" %>
+            <% if @end_user == current_end_user %>
+              <%= link_to "プロフィール編集", edit_end_user_path(@end_user), class: "col-5 btn btn-outline-secondary" %>
+            <% end %>
           </div>
           <div class="row">
             <p class="col-12"><%= @end_user.introduction %></p>
@@ -19,8 +21,10 @@
 
       <div class="row justify-content-center">
         <% @posts.each do |post| %>
-          <%= link_to post_image_path(post_image.id) do %>
-            <%= image_tag post_image.get_image %>
+          <%= link_to post_path(post) do %>
+            <div class="col-10 my-3 text-center">
+              <%= image_tag post.get_post_image, size: '300x300' %>
+            </div>
           <% end %>
         <% end %>
       </div>
