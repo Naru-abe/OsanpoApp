@@ -1,2 +1,21 @@
-<h1>Public::EndUsers#unsubscribe</h1>
-<p>Find me in app/views/public/end_users/unsubscribe.html.erb</p>
+<div class="container">
+  <div class="row my-5 mx-auto border">
+    <h1 class="col-10 my-5 mx-auto text-center">本当に退会しますか？</h1>
+
+    <div class="col-10 mx-auto">
+      <p class="row my-3 justify-content-center text-center">
+        退会すると、会員登録情報や<br>
+        これまでのご自身の投稿が閲覧できなくなります.<br>
+        退会する場合は、「退会する」をクリックしてください.
+      </p>
+
+      <div class="row my-5 justify-content-center">
+        <%= link_to "退会しない", end_user_path(@end_user), class: "btn btn-primary" %>
+        <%= form_with model: @end_user, url: end_users_withdraw_path, method: :patch, class: "col-2 offset-1" do |f| %>
+          <%= f.hidden_field :is_deleted, :value => "true" %>
+          <%= f.submit "退会する", class: "btn btn-danger" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
