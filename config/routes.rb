@@ -20,9 +20,9 @@ Rails.application.routes.draw do
       resource :favorite, only: [:create, :destroy]
       resources :post_comments, only: [:create, :destroy]
     end
-    resources :end_users, only: [:index, :show, :edit, :update]
     get 'end_users/unsubscribe' => 'end_users#unsubscribe'
     patch 'end_users/withdraw' => 'end_users#withdraw'
+    resources :end_users, only: [:index, :show, :edit, :update]
   end
 
   # 管理者側

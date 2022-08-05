@@ -1,4 +1,6 @@
 class Public::PostsController < ApplicationController
+  before_action :ensure_correct_end_user, only: [:edit, :update, :destroy]
+
   def index
     @posts = Post.all
   end
@@ -19,19 +21,27 @@ class Public::PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post.update(post_params)
+    redirect_to post_path(@post)
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
   end
 
   private
   def post_params
     params.require(:post).permit(:post_image, :content, :tag_id, :station_name, :address, :latitude, :longitude)
+  end
+
+  def ensure_correct_end_user
+    @post = Post.find(params[:id])
+    unless @post.end_user == current_end_user
+      redirect_to posts_path
+    end
   end
 end
