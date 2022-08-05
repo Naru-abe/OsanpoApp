@@ -1,2 +1,13 @@
-<h1>Public::EndUsers#index</h1>
-<p>Find me in app/views/public/end_users/index.html.erb</p>
+<div class="container">
+  <div class="row my-5">
+    <table class="col-8 my-3 mx-auto table table-borderless border">
+      <% @end_users.each do |user| %>
+        <tr class="row align-items-center">
+          <td class="col-2 text-center"><%= image_tag user.get_profile_image, size: '50x50' %></td>
+          <td class="col-7"><%= user.name %></td>
+          <td class="col-2 text-center"><%= link_to 'Show', user, class: "user_#{user.id} btn btn-info" %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

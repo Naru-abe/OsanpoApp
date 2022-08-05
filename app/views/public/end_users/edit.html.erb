@@ -1,17 +1,33 @@
-<h2>プロフィール編集</h2>
-<%= form_with model: @end_user, url: end_user_path, method: :patch do |f| %>
-  <%= f.label "名前" %>
-  <%= f.text_field :name, autofocus: true%>
+<div class="container">
+  <div class="row my-5 mx-auto border">
+    <h4 class="col-10 my-3 mx-auto">プロフィール編集</h4>
+    <div class="col-10 mx-auto">
+      <%= form_with model: @end_user, url: end_user_path, method: :patch do |f| %>
+        <div class="row mt-3 justify-content-center">
+        <%= f.label "名前", class: "col-3" %>
+        <%= f.text_field :name, autofocus: true, class: "col-7" %>
+        </div>
 
-  <%= f.label "自己紹介" %>
-  <%= f.text_area :introduction %>
+        <div class="row mt-3 justify-content-center">
+        <%= f.label "自己紹介", class: "col-3" %>
+        <%= f.text_area :introduction, class: "col-7" %>
+        </div>
 
-  <%= f.label "プロフィール写真" %>
-  <%= f.file_field :profile_image, accept: "image/*" %>
+        <div class="row mt-3 justify-content-center">
+        <%= f.label "プロフィール写真", class: "col-3" %>
+        <%= f.file_field :profile_image, accept: "image/*", class: "col-7" %>
+        </div>
 
-  <%= f.label "メールアドレス" %>
-  <%= f.text_field :email %>
+        <div class="row mt-3 justify-content-center">
+        <%= f.label "メールアドレス", class: "col-3" %>
+        <%= f.text_field :email, class: "col-7" %>
+        </div>
 
-  <%= f.submit "変更を保存" %>
-  <%= link_to "退会する", end_users_unsubscribe_path %>
-<% end %>
+        <div class="row my-5 justify-content-center">
+        <%= f.submit "変更を保存", class: "col-2 btn btn-primary" %>
+        <%= link_to "退会する", end_users_unsubscribe_path, class: "col-2 offset-1 btn btn-danger" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
