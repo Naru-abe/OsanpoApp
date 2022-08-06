@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show, :destroy] do
       resources :post_comments, only: [:index, :show, :destroy]
     end
-    resources :tags, except: [:new]
+    resources :tags, except: [:new, :show]
     resources :end_users, only: [:index, :show, :edit, :update]
   end
 
