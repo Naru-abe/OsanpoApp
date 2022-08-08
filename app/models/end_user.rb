@@ -11,4 +11,8 @@ class EndUser < ApplicationRecord
   def get_profile_image
     (profile_image.attached?) ? profile_image : 'no_image.jpg'
   end
+
+  def self.search_for(content, method)
+    EndUser.where('name LIKE ?', '%' + content + '%')
+  end
 end
