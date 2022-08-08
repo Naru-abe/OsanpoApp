@@ -68,3 +68,5 @@ gem "gmaps4rails"
 gem "geocoder"
 
 gem 'net-smtp'
+
+gem 'jquery-rails'

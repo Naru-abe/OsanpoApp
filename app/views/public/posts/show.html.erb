@@ -3,10 +3,10 @@
     <div class="col-10 my-3 mx-auto">
       <div class="row justify-content-center align-items-center border-bottom">
         <div class="col-2 mb-3 text-center">
-          <%= image_tag @post.end_user.get_profile_image, size: '100x100' %>
+          <%= image_tag @post.end_user.get_profile_image, size: '100x100', class: "img-fluid" %>
         </div>
         <div class="col-6 mb-3">
-          <%= link_to end_user_path(@post.end_user) do %>
+          <%= link_to end_user_path(@post.end_user), {class: "text-secondary"} do %>
           <%= @post.end_user.name %>
           <% end %>
         </div>
@@ -20,7 +20,10 @@
 
       <div class="row justify-content-center border-bottom">
         <div class="col-10 my-3 text-center">
-          <%= image_tag @post.post_image, size: '600x600' %>
+          <%= image_tag @post.post_image, size: '600x600', class: "img-fluid" %>
+        </div>
+        <div class="col-8 my-3">
+          <div class=<%= "favorite-" + @post.id.to_s %> ><%= render "public/favorites/btn", post: @post %></div>
         </div>
       </div>
 
