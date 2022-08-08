@@ -2,7 +2,7 @@ class Public::PostsController < ApplicationController
   before_action :ensure_correct_end_user, only: [:edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
   end
 
   def new

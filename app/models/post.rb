@@ -9,4 +9,8 @@ class Post < ApplicationRecord
     (post_image.attached?) ? post_image: 'default-image.jpeg'
   end
 
+  def self.search_for(content, method)
+    Post.where('content LIKE ?', '%'+content+'%')
+  end
+
 end
