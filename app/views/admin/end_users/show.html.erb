@@ -1,2 +1,14 @@
-<h1>Admin::EndUsers#show</h1>
-<p>Find me in app/views/admin/end_users/show.html.erb</p>
+<div class="container">
+  <div class="row my-5">
+    <h4 class="col-10 my-3 mx-auto text-secondary"><%= @end_user.name %>さんの投稿一覧</h4>
+    <div class="col-10 mx-auto">
+      <% @posts.each do |post| %>
+        <div class="row m-3 pt-3 justify-content-center border-top">
+          <div class="col-2 text-center"><%= image_tag post.get_post_image, size: '50x50' %></div>
+          <div class="col-8"><%= post.content %></div>
+          <div class="col-2 text-center"><%= link_to '削除', admin_post_path(post), method: :delete, class: "btn btn-danger" %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
