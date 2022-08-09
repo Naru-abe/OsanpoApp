@@ -31,8 +31,9 @@ Rails.application.routes.draw do
   # 管理者側
   namespace :admin do
     get '/' => 'homes#top'
+    get 'post_comments' => 'post_comments#index', as: 'post_comments'
     resources :posts, only: [:index, :show, :destroy] do
-      resources :post_comments, only: [:index, :show, :destroy]
+      resources :post_comments, only: [:show, :destroy]
     end
     resources :tags, except: [:new, :show]
     resources :end_users, only: [:index, :show, :edit, :update]
