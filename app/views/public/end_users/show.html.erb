@@ -8,9 +8,12 @@
 
         <div class="col-7 mb-3">
           <div class="row">
-            <h3 class="col-7"><%= @end_user.name %></h3>
+            <h3 class="col-6"><%= @end_user.name %></h3>
             <% if @end_user == current_end_user %>
-              <%= link_to "プロフィール編集", edit_end_user_path(@end_user), class: "col-5 btn btn-outline-secondary" %>
+              <div class="col-6 text-center">
+              <%= link_to "プロフィール編集", edit_end_user_path(@end_user), class: "btn btn-outline-secondary" %>
+              <%= link_to "お気に入り一覧", favorites_end_users_path, class: "btn btn-outline-secondary" %>
+              </div>
             <% end %>
           </div>
           <div class="row">
