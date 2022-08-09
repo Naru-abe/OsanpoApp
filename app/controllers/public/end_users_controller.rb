@@ -25,6 +25,13 @@ class Public::EndUsersController < ApplicationController
     @end_user = EndUser.find(current_end_user.id)
   end
 
+  def favorites
+    # ログイン中のユーザーのお気に入りのpost_idカラムを取得
+    favorites = Favorite.where(end_user_id: current_end_user.id).pluck(:post_id)
+    # postsテーブルから、お気に入り登録済みのレコードを取得
+    @favorite_list = Post.find(favorites)
+  end
+
   private
   def set_user
     @end_user = EndUser.find(params[:id])

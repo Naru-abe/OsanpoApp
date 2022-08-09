@@ -1,8 +1,8 @@
 class Post < ApplicationRecord
   belongs_to :end_user
   belongs_to :tag
-  has_many :post_comments
-  has_many :favorites
+  has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_one_attached :post_image
 
   def get_post_image
