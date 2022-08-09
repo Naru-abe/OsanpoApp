@@ -1,4 +1,5 @@
 class Public::PostsController < ApplicationController
+  before_action :authenticate_end_user!
   before_action :ensure_correct_end_user, only: [:edit, :update, :destroy]
 
   def index
@@ -18,6 +19,7 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @post_comment = PostComment.new
   end
 
   def edit
