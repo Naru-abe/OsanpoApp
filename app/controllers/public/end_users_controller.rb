@@ -14,7 +14,7 @@ class Public::EndUsersController < ApplicationController
 
   def update
     @end_user.update(end_user_params)
-    redirect_to end_user_path(end_user)
+    redirect_to end_user_path(@end_user)
   end
 
   def unsubscribe
