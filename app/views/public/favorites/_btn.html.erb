@@ -1,0 +1,13 @@
+<div class="row mx-auto">
+<% if post.favorited_by?(current_end_user) %>
+  <%= link_to post_favorite_path(post), method: :delete, remote: true, class: "link-danger" do %>
+    <i class="col-auto fa-solid fa-heart" aria-hidden="true" style="color: red;"></i>
+  <% end %>
+  <div class="col-auto px-0 text-secondary"><%= post.favorites.count %></div>
+<% else %>
+  <%= link_to post_favorite_path(post), method: :post, remote: true do %>
+    <i class="col-auto fa-regular fa-heart" aria-hidden="true" style="color: gray;"></i>
+  <% end %>
+  <div class="col-auto px-0 text-secondary"><%= post.favorites.count %></div>
+<% end %>
+</div>

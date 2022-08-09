@@ -23,7 +23,9 @@ Rails.application.routes.draw do
     end
     get 'end_users/unsubscribe' => 'end_users#unsubscribe'
     patch 'end_users/withdraw' => 'end_users#withdraw'
-    resources :end_users, only: [:index, :show, :edit, :update]
+    resources :end_users, only: [:index, :show, :edit, :update] do
+      get :favorites, on: :collection
+    end
   end
 
   # 管理者側
