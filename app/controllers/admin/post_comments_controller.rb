@@ -4,7 +4,8 @@ class Admin::PostCommentsController < ApplicationController
   end
 
   def show
-    @post_comment = PostComment.find(params[:id])
+    @end_user = EndUser.find(params[:id])
+    @post_comments = @end_user.post_comments
   end
 
   def destroy
