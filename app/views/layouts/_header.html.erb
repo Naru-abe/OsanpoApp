@@ -10,7 +10,7 @@
       <% if admin_signed_in? %>
         <li class="nav-item mx-2"><%= link_to "投稿一覧", admin_posts_path, class: "text-secondary" %></li>
         <li class="nav-item mx-2"><%= link_to "会員一覧", admin_end_users_path, class: "text-secondary" %></li>
-        <li class="nav-item mx-2"><%#= link_to "コメント一覧", admin_post_post_comments_path, class: "text-secondary" %></li>
+        <li class="nav-item mx-2"><%= link_to "コメント一覧", admin_post_comments_path, class: "text-secondary" %></li>
         <li class="nav-item mx-2"><%= link_to "ログアウト", destroy_end_user_session_path, method: :delete, class: "text-secondary" %></li>
       <% elsif end_user_signed_in? %>
         <li class="nav-item mx-2"><%= link_to "マイページ", end_user_path(current_end_user), class: "text-secondary" %></li>
