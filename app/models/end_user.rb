@@ -3,6 +3,7 @@ class EndUser < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+ 
   has_one_attached :profile_image
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
@@ -18,4 +19,12 @@ class EndUser < ApplicationRecord
   def self.search_for(content, method)
     EndUser.where('name LIKE ?', '%' + content + '%')
   end
+  
+  def self.guest
+    find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "guestuser"
+    end
+  end
+
 end
