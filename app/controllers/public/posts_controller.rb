@@ -13,8 +13,13 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.end_user_id = current_end_user.id
-    @post.save
-    redirect_to post_path(@post)
+    if @post.save
+      redirect_to post_path(@post)
+      flash[:notice] = "投稿しました"
+    else
+      redirect_to new_post_path
+      flash[:notice] = "項目を入力してください"
+    end
   end
 
   def show

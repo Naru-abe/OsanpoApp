@@ -5,6 +5,8 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_one_attached :post_image
 
+  validates :content, presence:true, length:{maximum:200}
+
   def get_post_image
     (post_image.attached?) ? post_image: 'default-image.jpeg'
   end
