@@ -2,6 +2,10 @@
   <div class="row my-5 mx-auto border">
     <h1 class="col-10 my-3 mx-auto text-center">OsanpoApp</h1>
 
+    <p class="col-10 my-3 mx-auto text-muted text-center">
+      <%= notice %>
+    </p>
+
     <div class="col-8 mx-auto">
       <%= form_with model: @end_user, url: session_path(resource_name) do |f| %>
         <div class="field row mt-3 justify-content-center">
