@@ -36,7 +36,8 @@ class Public::PostsController < ApplicationController
   end
 
   def searchstation
-    @posts = Post.where(station_name: "1")
+    station_name = params[:station_name]
+    @posts = Post.where(station_name: station_name)
   end
 
   private
