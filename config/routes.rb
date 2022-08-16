@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   # 会員側
   scope module: :public do
-    get '/' => 'homes#top'
+    root to: 'homes#top'
     get 'about' => 'homes#about'
     get 'search' => 'searches#search', as: 'search'
     get 'searchstation' => 'posts#searchstation', as: 'searchstation'

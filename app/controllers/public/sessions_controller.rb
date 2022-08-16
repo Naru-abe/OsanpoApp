@@ -20,8 +20,11 @@ class Public::SessionsController < Devise::SessionsController
     return if !@end_user
     ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
     if (@end_user.valid_password?(params[:end_user][:password]) && (@end_user.is_deleted == true))
+      flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
       ## 【処理内容3】is_deletedカラムに格納されている値を確認
       redirect_to new_end_user_registration_path
+    else
+      flash[:notice] = "項目を入力してください"
     end
   end
 
