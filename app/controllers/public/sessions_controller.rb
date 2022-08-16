@@ -5,6 +5,12 @@ class Public::SessionsController < Devise::SessionsController
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :end_user_state, only: [:create]
 
+  # ゲスト用のユーザーを作成
+  def guest_sign_in
+    user = EndUser.guest
+    sign_in user
+    redirect_to end_user_path(user), notice: "guestuserでログインしました。"
+  end
 
   protected
 
@@ -49,12 +55,5 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-
-  # ゲスト用のユーザーを作成
-  def guest_sign_in
-    user = EndUser.guest
-    sign_in user
-    redirect_to end_user_path(user), notice: 'guestuserでログインしました。'
-  end
 
 end

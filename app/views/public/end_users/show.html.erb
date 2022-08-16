@@ -7,15 +7,17 @@
         </div>
 
         <div class="col-7 mb-3">
-          <div class="row">
-            <h3 class="col-6"><%= @end_user.name %></h3>
-            <% if @end_user == current_end_user %>
-              <div class="col-6 text-center">
-              <%= link_to "プロフィール編集", edit_end_user_path(@end_user), class: "btn btn-outline-secondary" %>
-              <%= link_to "お気に入り一覧", favorites_end_users_path, class: "btn btn-outline-secondary" %>
-              </div>
-            <% end %>
-          </div>
+          <% if @end_user.name != "guestuser" %>
+            <div class="row">
+              <h3 class="col-6"><%= @end_user.name %></h3>
+              <% if @end_user == current_end_user %>
+                <div class="col-6 text-center">
+                <%= link_to "プロフィール編集", edit_end_user_path(@end_user), class: "btn btn-outline-secondary" %>
+                <%= link_to "お気に入り一覧", favorites_end_users_path, class: "btn btn-outline-secondary" %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
           <div class="row">
             <p class="col-12"><%= @end_user.introduction %></p>
           </div>

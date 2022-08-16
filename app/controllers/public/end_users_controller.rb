@@ -2,6 +2,7 @@ class Public::EndUsersController < ApplicationController
   before_action :authenticate_end_user!
   before_action :ensure_correct_user, only: [:edit, :update]
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :ensure_guest_user, only: [:edit]
 
   def index
     @end_users = EndUser.all
@@ -51,6 +52,13 @@ class Public::EndUsersController < ApplicationController
     @end_user = EndUser.find(params[:id])
     unless @end_user == current_end_user
       redirect_to end_user_path(current_end_user)
+    end
+  end
+
+  def ensure_guest_user
+    @user = EndUser.find(params[:id])
+    if @user.name == "guestuser"
+      redirect_to end_user_path(current_end_user) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
   end
 end
