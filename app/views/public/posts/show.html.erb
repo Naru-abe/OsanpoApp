@@ -1,2 +1,51 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<div class="container">
+  <div class="row mt-5 justify-content-center align-items-center border-bottom">
+    <div class="col-2 mb-3 text-center">
+      <%= image_tag @post.end_user.get_profile_image, size: '80x80', class: "img-fluid" %>
+    </div>
+    <div class="col-6 mb-3">
+      <%= link_to end_user_path(@post.end_user), {class: "text-secondary"} do %>
+      <%= @post.end_user.name %>
+      <% end %>
+    </div>
+
+    <div class="col-2 mb-3">
+      <% if @post.end_user == current_end_user %>
+        <%= link_to "編集", edit_post_path(@post), class: "btn btn-outline-secondary" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row justify-content-center border-bottom">
+    <div class="col-10 my-3 text-center">
+      <%= image_tag @post.post_image, size: '600x600', class: "img-fluid" %>
+    </div>
+  </div>
+
+  <div class="row mx-auto my-3 justify-content-center align-items-center border-bottom">
+    <div class="col-auto px-0 <%= "favorite-" + @post.id.to_s %>" >
+      <%= render "public/favorites/btn", post: @post %>
+    </div>
+    <div class="col-auto post-comments-counter">
+      <%= render "public/post_comments/counter", post: @post %>
+    </div>
+    <div class="col-3 my-3 offset-1 text-center btn btn-outline-success">
+      <%= @post.tag.name %>
+    </div>
+    <div class="col-3 ml-1 my-3 text-center btn btn-outline-warning">
+      <%= link_to searchstation_path(station_name: @post.station_name) do %><%= @post.station_name %><% end %>
+    </div>
+    <div class="col-9 my-3 text-center">
+      <%= @post.content %>
+    </div>
+  </div>
+
+  <div class="row justify-content-center border-bottom">
+    <div class="col-10 text-center">
+    <%= render "public/post_comments/form", post: @post, post_comment: @post_comment %>
+     </div>
+    <div class="col-10 post-comments-index">
+    <%= render "public/post_comments/index", post: @post %>
+    </div>
+  </div>
+</div>

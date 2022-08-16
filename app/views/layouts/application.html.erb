@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Osanpo</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>OsanpoApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="d-flex flex-column vh-100">
+    <header class="shadow-sm">
+      <%= render 'layouts/header' %>
+    </header>
+
+    <main>
+      <p class="col-10 my-3 mx-auto text-muted text-center"><%= notice %></p>
+      <%= render 'layouts/search' %>
+      <%= yield %>
+    </main>
+
   </body>
 </html>

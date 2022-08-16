@@ -1,0 +1,10 @@
+<div class="row my-5">
+  <table class="col-8 my-3 mx-auto table table-borderless border">
+    <% tags.each do |tag| %>
+      <tr class="row align-items-center">
+        <td class="col-7"><%= tag.name %></td>
+        <td class="col-2 text-center"><%= link_to 'Show', tag, class: "btn btn-info" %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

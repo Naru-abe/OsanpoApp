@@ -1,2 +1,26 @@
-<h1>Admin::Tags#index</h1>
-<p>Find me in app/views/admin/tags/index.html.erb</p>
+<div class="container">
+  <div class="row my-5 mx-auto border">
+    <h4 class="col-10 my-3 mx-auto text-secondary">タグを新規登録</h4>
+    <div class="col-10 mb-3 mx-auto">
+      <%= form_with model: @tag, url: admin_tags_path, method: :post, class: "m-3" do |f| %>
+        <div class="row justify-content-center">
+        <%= f.label "タグ名", class: "col-2" %>
+        <%= f.text_field :name, class: "form-control textarea col-4" %>
+        <%= f.submit "新規登録", class: 'offset-1 btn btn-outline-success' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row my-5 mx-auto border">
+    <h4 class="col-10 my-3 mx-auto text-secondary">タグ一覧</h4>
+    <div class="col-10 mx-auto">
+      <% @tags.each do |tag| %>
+        <div class="row m-3 pt-3 justify-content-center border-top">
+          <div class="col-3"><%= tag.name %></div>
+          <%= link_to "編集", edit_admin_tag_path(tag.id), class: "offset-1 btn btn btn-outline-success" %>
+          <%= link_to "削除", admin_tag_path(tag.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "offset-1 btn btn-outline-danger" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

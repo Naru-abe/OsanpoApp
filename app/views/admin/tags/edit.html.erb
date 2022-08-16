@@ -1,2 +1,14 @@
-<h1>Admin::Tags#edit</h1>
-<p>Find me in app/views/admin/tags/edit.html.erb</p>
+<div class="container">
+  <div class="row my-5 mx-auto border">
+    <h4 class="col-10 my-3 mx-auto text-secondary">タグを新規登録</h4>
+    <div class="col-10 mb-3 mx-auto">
+      <%= form_with model: @tag, url: admin_tag_path, method: :patch, class: "m-3" do |f| %>
+        <div class="row justify-content-center">
+        <%= f.label "タグ名", class: "col-2" %>
+        <%= f.text_field :name, class: "form-control textarea col-4" %>
+        <%= f.submit "変更する", class: 'offset-1 btn btn-outline-success' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+ </div>
