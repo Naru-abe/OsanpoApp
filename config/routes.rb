@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     get '/' => 'homes#top'
     get 'about' => 'homes#about'
     get 'search' => 'searches#search', as: 'search'
+    get 'searchstation' => 'posts#searchstation', as: 'searchstation'
     resources :posts do
       resource :favorite, only: [:create, :destroy]
       resources :post_comments, only: [:create, :destroy]

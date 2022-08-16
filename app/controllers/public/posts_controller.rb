@@ -35,6 +35,11 @@ class Public::PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def searchstation
+    station_name = params[:station_name]
+    @posts = Post.where(station_name: station_name)
+  end
+
   private
   def post_params
     params.require(:post).permit(:post_image, :content, :tag_id, :station_name, :address, :latitude, :longitude)

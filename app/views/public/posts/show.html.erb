@@ -33,7 +33,7 @@
       <%= @post.tag.name %>
     </div>
     <div class="col-3 ml-1 my-3 text-center btn btn-outline-warning">
-      <%= @post.station_name %>
+      <%= link_to searchstation_path(station_name: @post.station_name) do %><%= @post.station_name %><% end %>
     </div>
     <div class="col-9 my-3 text-center">
       <%= @post.content %>
