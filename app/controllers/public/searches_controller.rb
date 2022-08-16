@@ -5,9 +5,9 @@ class Public::SearchesController < ApplicationController
 		@model = params[:model]
 		@content = params[:content]
 		if @model == 'end_user'
-			@records = EndUser.search_for(@content, @method)
+			@records = EndUser.search_for(@content, @method).page(params[:page])
 		else
-			@records = Post.search_for(@content, @method)
+			@records = Post.search_for(@content, @method).page(params[:page])
 		end
 	end
 end
