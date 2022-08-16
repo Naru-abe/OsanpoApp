@@ -25,7 +25,7 @@ class Public::EndUsersController < ApplicationController
     @end_user = EndUser.find(current_end_user.id)
     @end_user.update(is_deleted: true)
     reset_session
-    flash[:notice] = "退会処理を実行いたしました"
+    flash[:notice] = "退会処理を実行しました。ご利用ありがとうございました。"
     redirect_to root_path
   end
 
