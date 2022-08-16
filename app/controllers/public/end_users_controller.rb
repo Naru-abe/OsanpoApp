@@ -5,11 +5,11 @@ class Public::EndUsersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
 
   def index
-    @end_users = EndUser.all
+    @end_users = EndUser.page(params[:page])
   end
 
   def show
-    @posts = @end_user.posts
+    @posts = @end_user.posts.page(params[:page]).per(15)
   end
 
   def edit

@@ -1,6 +1,6 @@
 class Admin::PostCommentsController < ApplicationController
   def index
-    @post_comments = PostComment.all
+    @post_comments = PostComment.page(params[:page])
   end
 
   def show
