@@ -42,7 +42,7 @@ class Public::PostsController < ApplicationController
 
   def searchstation
     station_name = params[:station_name]
-    @posts = Post.where(station_name: station_name)
+    @posts = Post.where(station_name: station_name).page(params[:page])
   end
 
   private
