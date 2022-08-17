@@ -29,12 +29,12 @@
     <div class="col-auto post-comments-counter">
       <%= render "public/post_comments/counter", post: @post %>
     </div>
-    <div class="col-3 my-3 offset-1 text-center btn btn-outline-success">
+    <%= link_to posts_path(tag_id: @post.tag_id), {class: "col-3 my-3 offset-1 text-center btn btn-outline-success"} do %>
       <%= @post.tag.name %>
-    </div>
-    <div class="col-3 ml-5 my-3 text-center btn btn-outline-warning">
-      <%= link_to searchstation_path(station_name: @post.station_name) do %><%= @post.station_name %><% end %>
-    </div>
+    <% end %>
+    <%= link_to searchstation_path(station_name: @post.station_name), {class: "col-3 ml-5 my-3 text-center btn btn-outline-warning"} do %>
+      <%= @post.station_name %>
+    <% end %>
     <div class="col-9 my-3 text-center">
       <%= @post.content %>
     </div>

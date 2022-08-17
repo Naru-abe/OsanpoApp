@@ -1,4 +1,5 @@
 class Admin::TagsController < ApplicationController
+  before_action :authenticate_admin!
   before_action :ensure_correct_tag, only: [:edit, :update, :destroy]
 
   def index
