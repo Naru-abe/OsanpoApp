@@ -7,6 +7,9 @@ class Post < ApplicationRecord
 
   validates :content, presence:true, length:{maximum:200}
 
+  geocoded_by :address
+  after_validation :geocode
+
   def get_post_image
     (post_image.attached?) ? post_image: 'default-image.jpeg'
   end

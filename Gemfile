@@ -67,6 +67,10 @@ gem "gmaps4rails"
 # 住所の情報を緯度経度の数値に変換する用
 gem "geocoder"
 
+gem 'dotenv-rails'
+
+gem "gon"
+
 gem 'net-smtp'
 
 gem 'jquery-rails'

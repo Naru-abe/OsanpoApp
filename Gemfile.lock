@@ -98,12 +98,21 @@ GEM
     digest (3.1.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.11.0)
     ffi (1.15.5)
     geocoder (1.8.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     gmaps4rails (2.1.2)
+    gon (6.4.0)
+      actionpack (>= 3.0.20)
+      i18n (>= 0.7)
+      multi_json
+      request_store (>= 1.0)
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
@@ -147,6 +156,7 @@ GEM
     mini_portile2 (2.8.0)
     minitest (5.16.2)
     msgpack (1.5.4)
+    multi_json (1.15.0)
     mustermann (1.1.2)
       ruby2_keywords (~> 0.0.1)
     net-protocol (0.1.3)
@@ -208,6 +218,8 @@ GEM
       mini_magick (~> 4.0)
       refile (~> 0.5)
     regexp_parser (2.5.0)
+    request_store (1.5.1)
+      rack (>= 1.4)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -292,8 +304,10 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise
+  dotenv-rails
   geocoder
   gmaps4rails
+  gon
   jbuilder (~> 2.7)
   jquery-rails
   kaminari (~> 1.2.1)
