@@ -16,8 +16,8 @@
       </div>
 
       <div class="row mt-3 justify-content-center">
-        <%= f.select :tag_id, options_from_collection_for_select(Tag.all, :id, :name), {}, {:class => "col-2 form-control"} %>
-        <%= f.select :station_name, options_for_select([["宇部新川駅", "宇部新川駅"],["草江駅", "草江駅"],["新山口駅", "新山口駅"],["宇部駅", "宇部駅"],["居能駅", "居能駅"],["雀田駅", "雀田駅"]]), { id: "station_name"}, {class: "col-2 form-control offset-1" } %>
+        <%= f.select :tag_id, options_from_collection_for_select(Tag.all, :id, :name, {:selected => @post.tag_id}), {}, {:class => "col-2 form-control"} %>
+        <%= f.select :station_name, options_for_select(["宇部新川駅","草江駅","新山口駅", "宇部駅", "居能駅", "雀田駅"],{:selected => @post.station_name}),{ id: "station_name"}, {class: "col-2 form-control offset-1" } %>
       </div>
 
       <div class="row my-5 justify-content-center">
