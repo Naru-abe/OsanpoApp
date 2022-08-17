@@ -38,6 +38,41 @@
     <div class="col-9 my-3 text-center">
       <%= @post.content %>
     </div>
+
+    <div class="col-9 my-3 text-center" id='map' style="height: 400px;"></div>
+    <script>
+      let map
+
+      const display = document.getElementById('display')
+
+      // mapの表示関数
+      function initMap() {
+          geocoder = new google.maps.Geocoder()
+
+          // mapの初期位置, 縮尺を定義
+          map = new google.maps.Map(document.getElementById('map'), {
+              center:{lat: <%= @post.latitude %>, lng: <%= @post.longitude %>},
+              zoom: 13,
+          });
+
+          // postの情報をmap上に表示
+              (function(){
+              var contentString = "住所：<%= @post.address %>";
+
+              // マーカーを立てる
+              var marker = new google.maps.Marker({
+                  position:{lat: <%= @post.latitude %>, lng: <%= @post.longitude %>},
+                  map: map,
+                  title: contentString
+              });
+              })();
+      }
+    </script>
+
+    <script class="col-10 my-3 text-center"
+        src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"
+        async defer>
+    </script>
   </div>
 
   <div class="row justify-content-center border-bottom">
