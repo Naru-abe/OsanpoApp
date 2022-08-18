@@ -1,16 +1,18 @@
 <div class="container">
   <div class="row my-5">
-    <table class="col-8 my-3 mx-auto table table-borderless border">
+    <div class="col-8 my-3 mx-auto p-0 border">
       <% end_users.each do |user| %>
-         <% unless user.is_deleted %>
-          <tr class="row align-items-center">
-            <td class="col-2 text-center"><%= image_tag user.get_profile_image, size: '50x50' %></td>
-            <td class="col-7"><%= user.name %></td>
-            <td class="col-2 text-center"><%= link_to 'Show', user, class: "user_#{user.id} btn btn-info" %></td>
-          </tr>
+        <% unless user.is_deleted %>
+         <%= link_to end_user_path(user), {class: "m-0 btn btn-block btn-outline-light btn-borderless text-secondary"} do %>
+          <div class="row my-3 mx-auto align-items-center">
+            <div class="col-2 text-center"><%= image_tag user.get_profile_image, size: '50x50' %></div>
+            <div class="col-7"><%= user.name %></div>
+            <div class="col-2 text-center"></div>
+          </div>
+          <% end %>
         <% end %>
       <% end %>
-    </table>
+    </div>
     <div class="col-10 my-3 mx-auto">
       <%= paginate  end_users %>
     </div>

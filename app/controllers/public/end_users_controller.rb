@@ -16,8 +16,13 @@ class Public::EndUsersController < ApplicationController
   end
 
   def update
-    @end_user.update(end_user_params)
-    redirect_to end_user_path(@end_user)
+    if @end_user.update(end_user_params)
+      redirect_to end_user_path(@end_user)
+      flash[:notice] = "変更を完了しました"
+    else
+      redirect_to edit_end_user_path(@end_user)
+      flash[:notice] = "項目を入力してください"
+    end
   end
 
   def unsubscribe

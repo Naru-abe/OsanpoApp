@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row my-5">
     <% if @model == 'end_user' %>
-    	<h3 class="col text-center">Users search for "<%= @content %>"</h3>
+    	<h3 class="col text-center">"<%= @content %>"のユーザー検索結果</h3>
       <%= render 'public/end_users/index', end_users: @records %>
     <% elsif @model == 'post' %>
-    	<h3 class="col text-center">Posts search for "<%= @content %>"</h3>
+    	<h3 class="col text-center">"<%= @content %>"の投稿検索結果</h3>
       <%= render 'public/posts/index', posts: @records %>
     <% end %>
   </div>

@@ -3,6 +3,10 @@ class Public::PostsController < ApplicationController
   before_action :ensure_correct_end_user, only: [:edit, :update, :destroy]
 
   def index
+    # 退会ステータスが有効のユーザーのpost_idカラムを取得
+    # users = EndUser.where(is_deleted: false).pluck(:post_id)
+    # postsテーブルから、お気に入り登録済みのレコードを取得
+    # @posts = Post.find(users)
     @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts.page(params[:page]) : Post.page(params[:page])
   end
 
@@ -31,13 +35,19 @@ class Public::PostsController < ApplicationController
   end
 
   def update
-    @post.update(post_params)
-    redirect_to post_path(@post)
+    if @post.update(post_params)
+      redirect_to post_path(@post)
+      flash[:notice] = "変更を完了しました"
+    else
+      redirect_to edit_post_path(@post)
+      flash[:notice] = "項目を入力してください"
+    end
   end
 
   def destroy
     @post.destroy
     redirect_to posts_path
+    flash[:notice] = "投稿を削除しました"
   end
 
   def searchstation
