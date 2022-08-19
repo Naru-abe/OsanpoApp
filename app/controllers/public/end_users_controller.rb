@@ -41,7 +41,7 @@ class Public::EndUsersController < ApplicationController
     # ログイン中のユーザーのお気に入りのpost_idカラムを取得
     favorites = Favorite.where(end_user_id: current_end_user.id).pluck(:post_id)
     # postsテーブルから、お気に入り登録済みのレコードを取得
-    @favorite_list = Post.find(favorites)
+    @favorite_list = Post.where(id: favorites).page(params[:page]).per(15)
   end
 
   private

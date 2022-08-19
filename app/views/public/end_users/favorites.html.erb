@@ -3,12 +3,15 @@
   <div class="row justify-content-center">
     <% if @favorite_list.present? %>
       <% @favorite_list.each do |post| %>
-        <%= link_to post_path(post) do %>
+        <%= link_to post_path(post), data: {"turbolinks" => false } do %>
           <div class="col-10 my-3 text-center" style="width:80% heght:80%">
             <%= image_tag post.get_post_image, size: '300x300' %>
           </div>
           <% end %>
         <% end %>
     <% end %>
+    <div class="col-10 my-3 mx-auto">
+      <%= paginate @favorite_list %>
+    </div>
   </div>
 </div>

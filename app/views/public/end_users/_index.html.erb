@@ -2,14 +2,12 @@
   <div class="row my-5">
     <div class="col-8 my-3 mx-auto p-0 border">
       <% end_users.each do |user| %>
-        <% unless user.is_deleted %>
-         <%= link_to end_user_path(user), {class: "m-0 btn btn-block btn-outline-light btn-borderless text-secondary"} do %>
-          <div class="row my-3 mx-auto align-items-center">
-            <div class="col-2 text-center"><%= image_tag user.get_profile_image, size: '50x50' %></div>
-            <div class="col-7"><%= user.name %></div>
-            <div class="col-2 text-center"></div>
-          </div>
-          <% end %>
+       <%= link_to end_user_path(user), {class: "m-0 btn btn-block btn-outline-light btn-borderless text-secondary"} do %>
+        <div class="row my-3 mx-auto align-items-center">
+          <div class="col-2 text-center"><%= image_tag user.get_profile_image, size: '50x50' %></div>
+          <div class="col-7"><%= user.name %></div>
+          <div class="col-2 text-center"></div>
+        </div>
         <% end %>
       <% end %>
     </div>
