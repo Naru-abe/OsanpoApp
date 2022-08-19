@@ -5,9 +5,12 @@ class Public::SearchesController < ApplicationController
 		@model = params[:model]
 		@content = params[:content]
 		if @model == 'end_user'
-			@records = EndUser.search_for(@content, @method).page(params[:page])
+			end_users = EndUser.where(is_deleted: false)
+			@records = end_users.search_for(@content, @method).page(params[:page])
 		else
-			@records = Post.search_for(@content, @method).page(params[:page])
+			end_users = EndUser.where(is_deleted: false)
+      @posts = Post.where(end_user: end_users).page(params[:page])
+			@records = @posts.search_for(@content, @method).page(params[:page])
 		end
 	end
 end

@@ -14,8 +14,6 @@ import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 
-import "../stylesheets/homes.scss"
-
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
