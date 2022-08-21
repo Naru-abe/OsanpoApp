@@ -11,7 +11,7 @@ class Post < ApplicationRecord
   after_validation :geocode
 
   def get_post_image
-    (post_image.attached?) ? post_image: 'default-image.jpeg'
+    (post_image.attached?) ? post_image: 'default-image.jpg'
   end
 
   def self.search_for(content, method)
