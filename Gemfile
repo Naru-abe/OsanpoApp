@@ -68,7 +68,6 @@ gem "gmaps4rails"
 gem "geocoder"
 gem 'dotenv-rails'
 gem "gon"
-gem 'net-smtp'
 gem 'jquery-rails'
 
 group :production do
