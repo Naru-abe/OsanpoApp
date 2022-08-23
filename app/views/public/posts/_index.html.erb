@@ -19,7 +19,7 @@
           <% end %>
         </div>
         <div class="row justify-content-center border-bottom">
-          <%= link_to post_path(post) do %>
+          <%= link_to post_path(post), data: {"turbolinks" => false } do %>
             <div class="col-10 my-3 mx-auto text-center">
               <%= image_tag post.get_post_image, class: "img-fluid" %>
             </div>

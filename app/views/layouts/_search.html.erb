@@ -1,6 +1,6 @@
 <% if end_user_signed_in? %>
   <div class="container pt-2">
-    <div class="row m-auto justify-content-between">
+    <div class="row m-auto justify-content-md-between">
       <div class="form-inline mx-auto my-3 m-md-3">
         <%= form_tag posts_path, method: :get, class: "row" do %>
         <div class="col-md-auto">
@@ -17,8 +17,8 @@
           <div class="col-7 col-md-auto pr-md-0">
           <%= f.select :model, options_for_select({ "ユーザー" => "end_user", "投稿" => "post" }), {}, {:class => "form-control my-1"}%>
           </div>
-          <div class="col-7 col-md-auto  text-center">
-          <%= f.submit '検索', class: "btn btn-outline-success my-1" %>
+          <div class="col-7 col-md-auto text-center">
+          <%= f.submit '検索', class: "col-12 col-md-auto btn btn-outline-success my-1" %>
           </div>
         <% end %>
       </div>

@@ -1,41 +1,36 @@
 <div class="container">
-  <div class="row my-5">
-    <div class="col-12 my-3 mx-auto">
-      <div class="row justify-content-center border-bottom">
-        <div class="col-3 mb-3 text-center">
-          <%= image_tag @end_user.get_profile_image, size: "100x100" %>
-        </div>
-
-        <div class="col-7 mb-3">
-          <% if @end_user.name != "guestuser" %>
-            <div class="row">
-              <h3 class="col-6"><%= @end_user.name %></h3>
-              <% if @end_user == current_end_user %>
-                <div class="col-6 text-center">
-                <%= link_to "プロフィール編集", edit_end_user_path(@end_user), class: "btn btn-outline-secondary" %>
-                <%= link_to "お気に入り一覧", favorites_end_users_path, class: "btn btn-outline-secondary" %>
-                </div>
-              <% end %>
+  <div class="row mt-5 justify-content-center border-bottom">
+    <div class="col-4 col-md-3 mb-3 text-center">
+      <%= image_tag @end_user.get_profile_image, size: "100x100" %>
+    </div>
+    <div class="col-6 col-md-3 mb-3">
+      <h3 class="row m-auto"><%= @end_user.name %></h3>
+      <p class="row m-auto"><%= @end_user.introduction %></p>
+    </div>
+    <div class="col-md-6 mb-3">
+      <% if @end_user.name != "guestuser" %>
+        <div class="row">
+          <% if @end_user == current_end_user %>
+            <div class="col text-center">
+            <%= link_to "プロフィール編集", edit_end_user_path(@end_user), class: "btn btn-outline-secondary" %>
+            <%= link_to "お気に入り一覧", favorites_end_users_path, class: "btn btn-outline-secondary" %>
             </div>
           <% end %>
-          <div class="row">
-            <p class="col-12"><%= @end_user.introduction %></p>
-          </div>
         </div>
-      </div>
+      <% end %>
+    </div>
+  </div>
 
-      <div class="row justify-content-center">
-        <% @posts.each do |post| %>
-          <%= link_to post_path(post), data: {"turbolinks" => false } do %>
-            <div class="col-10 my-3 text-center">
-              <%= image_tag post.get_post_image, size: '300x300' %>
-            </div>
-          <% end %>
-        <% end %>
-        <div class="col-10 my-3 mx-auto">
-          <%= paginate @posts %>
+  <div class="row justify-content-center">
+    <% @posts.each do |post| %>
+      <%= link_to post_path(post), data: {"turbolinks" => false } do %>
+        <div class="col-10 my-3 text-center">
+          <%= image_tag post.get_post_image, size: '300x300' %>
         </div>
-      </div>
+      <% end %>
+    <% end %>
+    <div class="col-10 my-3 mx-auto">
+      <%= paginate @posts %>
     </div>
   </div>
 </div>
