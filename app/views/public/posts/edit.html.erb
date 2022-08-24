@@ -3,27 +3,27 @@
     <h4 class="col-10 my-3 mx-auto text-secondary">投稿を編集</h4>
     <div class="col-10 mx-auto">
       <%= form_with model: @post, url: post_path, method: :patch do |f| %>
-      <div class="row mt-3 justify-content-center">
-        <%= f.file_field :post_image, accept: "image/*" %>
-      </div>
+        <div class="row mt-3 justify-content-center">
+          <%= f.file_field :post_image, accept: "image/*", class: "col-md-7" %>
+        </div>
 
-      <div class="row mt-3 justify-content-center">
-        <%= f.text_area :content, class: "form-control textarea col-7", rows: "5" %>
-      </div>
+        <div class="row mt-3 justify-content-center">
+          <%= f.text_area :content, class: "form-control textarea col-md-7", rows: "5" %>
+        </div>
 
-      <div class="row mt-3 justify-content-center">
-        <%= f.text_field :address, class: "form-control textarea col-7", placeholder: "位置情報を追加する" %>
-      </div>
+        <div class="row mt-3 justify-content-center">
+          <%= f.text_field :address, class: "form-control textarea col-md-7", placeholder: "位置情報を追加する" %>
+        </div>
 
-      <div class="row mt-3 justify-content-center">
-        <%= f.select :tag_id, options_from_collection_for_select(Tag.all, :id, :name, {:selected => @post.tag_id}), {}, {:class => "col-2 form-control"} %>
-        <%= f.select :station_name, options_for_select(["宇部新川駅","草江駅","新山口駅", "宇部駅", "居能駅", "雀田駅"],{:selected => @post.station_name}),{ id: "station_name"}, {class: "col-2 form-control offset-1" } %>
-      </div>
+        <div class="row mt-3 justify-content-center">
+          <%= f.select :tag_id, options_from_collection_for_select(Tag.all, :id, :name, {:selected => @post.tag_id}), {}, {:class => "col-md-2 form-control"} %>
+          <%= f.select :station_name, options_for_select(["宇部新川駅","草江駅","新山口駅", "宇部駅", "居能駅", "雀田駅"],{:selected => @post.station_name}),{ id: "station_name"}, {class: "col-md-2 form-control offset-md-1 my-1" } %>
+        </div>
 
-      <div class="row my-5 justify-content-center">
-        <%= f.submit "完了", class: "col-2 btn btn-primary" %>
-        <%= link_to "削除する", post_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "col-2 offset-1 btn btn-danger" %>
-      </div>
+        <div class="row my-5 justify-content-center">
+          <%= f.submit "完了", class: "col-md-2 btn btn-primary my-1" %>
+          <%= link_to "削除する", post_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "col-md-2 offset-md-1 btn btn-danger my-1" %>
+        </div>
       <% end %>
     </div>
   </div>
