@@ -1,4 +1,4 @@
 <%= form_with model:[post, post_comment], local: false, class: "form-inline m-3 row justify-content-center" do |f| %>
-  <%= f.text_area :comment,placeholder: "コメントをここに", class: "col-md-8 pr-0 form-control comment-textarea", rows: "3" %>
+  <%= f.text_area :comment,placeholder: "コメントをここに", class: "col-md-7 pr-0 form-control comment-textarea", rows: "3" %>
   <%= f.submit "コメントする", class: "col-md-auto my-3 offset-md-1 align-self-center btn btn-outline-secondary" %>
 <% end %>
