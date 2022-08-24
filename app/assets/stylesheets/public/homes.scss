@@ -39,3 +39,22 @@
 .about-img{
   width: 100%;
 }
+
+@media screen and (max-width: 425px) {
+  .top-main h2{
+    font-size: 45px;
+    margin-bottom: 20px;
+  }
+
+  .top-main p{
+    font-size: 20px;
+  }
+
+  .about-main h2{
+    font-size: 35px;
+  }
+
+  .about-main p{
+    font-size: 15px;
+  }
+}
