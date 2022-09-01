@@ -23,6 +23,10 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.end_user_id = current_end_user.id
     if @post.save
+      tags = Vision.get_image_data(@post.post_image)
+      tags.each do |tag|
+        @post.vision_tags.create(name: tag)
+      end
       redirect_to post_path(@post)
       flash[:notice] = "投稿しました"
     else

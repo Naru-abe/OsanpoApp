@@ -39,6 +39,12 @@
       <%= @post.content %>
     </div>
 
+    <div class="col-9 my-3 text-center">
+      <% @post.vision_tags.each do |tag| %>
+        <span class="label"><%= tag.name %></span>
+      <% end %>
+    </div>
+
     <div class="col-9 my-3 text-center" id='map' style="height: 400px;"></div>
     <script>
       let map
