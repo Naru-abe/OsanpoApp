@@ -20,6 +20,11 @@
     <div class="col-10 my-3 text-center">
       <%= image_tag @post.get_post_image, size: '600x600', class: "img-fluid" %>
     </div>
+    <div class="col-10 mb-3 text-center">
+      <% @post.vision_tags.each do |tag| %>
+        <span class="btn btn-outline-secondary btn-sm"><%= tag.name %></span>
+      <% end %>
+    </div>
   </div>
 
   <div class="row mx-auto my-3 justify-content-center align-items-center border-bottom">
@@ -39,11 +44,7 @@
       <%= @post.content %>
     </div>
 
-    <div class="col-9 my-3 text-center">
-      <% @post.vision_tags.each do |tag| %>
-        <span class="label"><%= tag.name %></span>
-      <% end %>
-    </div>
+
 
     <div class="col-9 my-3 text-center" id='map' style="height: 400px;"></div>
     <script>
