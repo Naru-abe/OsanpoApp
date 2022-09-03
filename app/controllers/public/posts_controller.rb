@@ -45,6 +45,10 @@ class Public::PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
+      tags = Vision.get_image_data(@post.post_image)
+      tags.each do |tag|
+        @post.vision_tags.create(name: tag)
+      end
       redirect_to post_path(@post)
       flash[:notice] = "変更を完了しました"
     else

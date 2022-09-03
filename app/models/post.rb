@@ -7,6 +7,8 @@ class Post < ApplicationRecord
   has_one_attached :post_image
 
   validates :content, presence:true, length:{maximum:200}
+  validates :station_name, presence:true
+  validates :post_image, presence:true
 
   geocoded_by :address
   after_validation :geocode
