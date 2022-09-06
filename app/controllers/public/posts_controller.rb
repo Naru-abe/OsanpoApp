@@ -45,6 +45,7 @@ class Public::PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
+      @post.vision_tags = []
       tags = Vision.get_image_data(@post.post_image)
       tags.each do |tag|
         @post.vision_tags.create(name: tag)
