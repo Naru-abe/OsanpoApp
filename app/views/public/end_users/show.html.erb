@@ -8,14 +8,12 @@
       <p class="row m-auto"><%= @end_user.introduction %></p>
     </div>
     <div class="col-md-6 mb-3">
-      <% if @end_user.name != "guestuser" %>
+      <% if @end_user.name != "guestuser" && @end_user == current_end_user %>
         <div class="row">
-          <% if @end_user == current_end_user %>
-            <div class="col text-center">
+          <div class="col text-center">
             <%= link_to "プロフィール編集", edit_end_user_path(@end_user), class: "btn btn-outline-secondary" %>
             <%= link_to "お気に入り一覧", favorites_end_users_path, class: "btn btn-outline-secondary" %>
-            </div>
-          <% end %>
+          </div>
         </div>
       <% end %>
     </div>

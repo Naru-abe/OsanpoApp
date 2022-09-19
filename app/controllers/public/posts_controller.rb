@@ -3,14 +3,13 @@ class Public::PostsController < ApplicationController
   before_action :ensure_correct_end_user, only: [:edit, :update, :destroy]
 
   def index
+    # 退会ステータスが有効のユーザーを取得
+    end_users = EndUser.where(is_deleted: false)
     #present?メソッドでtag_idの存在チェック
     if params[:tag_id].present?
-      # 退会ステータスが有効のユーザーを取得
-      end_users = EndUser.where(is_deleted: false)
       # postsテーブルから、退会ステータスが有効のユーザーの投稿のレコードを取得
       @posts = Tag.find(params[:tag_id]).posts.where(end_user: end_users).page(params[:page])
     else
-      end_users = EndUser.where(is_deleted: false)
       @posts = Post.where(end_user: end_users).page(params[:page])
     end
   end
